@@ -1,734 +1,528 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ZAVEON™ — Wear Your Vibe</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ZAVEON™ | Wear Your Vibe</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
 body{
- margin:0;
- background:#070808;
- color:#fff;
- font-family:Arial,Helvetica,sans-serif
+  background:#080808;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
 }
+
 header{
- height:64px;
- background:#070707;
- border-bottom:1px solid #222;
- display:flex;
- align-items:center;
- justify-content:space-between;
- padding:0 4%;
- position:sticky;
- top:0;
- z-index:10
+  height:65px;
+  background:#080808;
+  border-bottom:1px solid #222;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5%;
+  position:sticky;
+  top:0;
+  z-index:100;
 }
+
 .logo{
- font-size:27px;
- font-weight:900;
- letter-spacing:2px
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:2px;
 }
-.logo span{font-size:11px}
-nav{display:flex;gap:22px}
+
+.logo sup{
+  font-size:10px;
+}
+
+nav{
+  display:flex;
+  gap:25px;
+}
+
 nav a{
- color:#aaa;
- text-decoration:none;
- font-size:13px;
- text-transform:uppercase
+  color:#aaa;
+  text-decoration:none;
+  font-size:13px;
+  text-transform:uppercase;
 }
-nav a:hover{color:#fff}
-.cartBtn{
- border:1px solid #444;
- background:#111;
- color:#fff;
- padding:10px 15px;
- border-radius:8px;
- cursor:pointer
+
+nav a:hover{
+  color:#fff;
 }
+
+.cart-btn{
+  background:#111;
+  border:1px solid #444;
+  color:#fff;
+  padding:10px 15px;
+  border-radius:7px;
+  cursor:pointer;
+}
+
 .hero{
- min-height:440px;
- padding:70px 6%;
- display:flex;
- align-items:center;
- background:
- linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.3)),
- url("https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1800&q=85")
- center/cover
+  min-height:470px;
+  display:flex;
+  align-items:center;
+  padding:70px 7%;
+
+  background:
+  linear-gradient(
+    90deg,
+    rgba(0,0,0,.95),
+    rgba(0,0,0,.35)
+  ),
+  url("https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1800&q=85")
+  center/cover no-repeat;
 }
-.heroText{max-width:650px}
+
+.hero-content{
+  max-width:650px;
+}
+
 .hero h1{
- font-size:clamp(45px,8vw,90px);
- line-height:.9;
- margin:0 0 20px;
- letter-spacing:-4px
+  font-size:clamp(50px,8vw,90px);
+  line-height:.88;
+  letter-spacing:-4px;
+  margin-bottom:25px;
 }
+
 .hero p{
- color:#bbb;
- font-size:17px;
- margin-bottom:28px
+  color:#bbb;
+  font-size:17px;
+  line-height:1.6;
+  max-width:520px;
+  margin-bottom:30px;
 }
-.btn{
- display:inline-block;
- background:#fff;
- color:#000;
- padding:14px 22px;
- border-radius:6px;
- font-weight:bold;
- text-decoration:none;
- border:0;
- cursor:pointer
+
+.shop-btn{
+  display:inline-block;
+  background:#fff;
+  color:#000;
+  padding:14px 25px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:bold;
 }
-.section{padding:45px 5%}
-.sectionTitle{
- display:flex;
- align-items:center;
- justify-content:space-between;
- margin-bottom:25px
+
+.section{
+  padding:50px 5%;
 }
-.sectionTitle h2{margin:0;font-size:28px}
+
+.section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:25px;
+}
+
+.section-head h2{
+  font-size:30px;
+}
+
 .filters{
- display:flex;
- gap:10px;
- flex-wrap:wrap
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
 }
-select,input{
- background:#111;
- color:#fff;
- border:1px solid #333;
- padding:11px 13px;
- border-radius:6px
+
+.filters input,
+.filters select{
+  background:#111;
+  color:#fff;
+  border:1px solid #333;
+  padding:11px 13px;
+  border-radius:6px;
+  outline:none;
 }
-.grid{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:18px
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
 }
-.card{
- background:#101111;
- border:1px solid #222;
- border-radius:10px;
- overflow:hidden;
- transition:.2s
+
+.product{
+  background:#111;
+  border:1px solid #222;
+  border-radius:10px;
+  overflow:hidden;
+  transition:.2s;
 }
-.card:hover{
- transform:translateY(-4px);
- border-color:#555
+
+.product:hover{
+  transform:translateY(-4px);
+  border-color:#555;
 }
-.pic{
- width:100%;
- aspect-ratio:1/1.15;
- object-fit:cover;
- background:#181818;
- display:block
+
+.product-image{
+  width:100%;
+  aspect-ratio:1/1.15;
+  object-fit:cover;
+  display:block;
+  background:#181818;
 }
-.info{padding:15px}
-.name{
- font-weight:bold;
- font-size:15px;
- margin-bottom:7px
+
+.product-info{
+  padding:15px;
 }
-.meta{
- color:#888;
- font-size:12px;
- margin-bottom:10px
+
+.product-name{
+  font-size:15px;
+  font-weight:bold;
+  margin-bottom:6px;
 }
-.price{
- font-size:18px;
- font-weight:bold;
- margin-bottom:12px
+
+.product-category{
+  color:#888;
+  font-size:12px;
+  margin-bottom:10px;
 }
-.card select{
- width:100%;
- margin-bottom:9px
+
+.product-price{
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:12px;
 }
-.add{
- width:100%;
- background:#fff;
- color:#000;
- border:0;
- padding:11px;
- border-radius:6px;
- font-weight:bold;
- cursor:pointer
+
+.size-select{
+  width:100%;
+  background:#080808;
+  color:#fff;
+  border:1px solid #333;
+  padding:10px;
+  border-radius:6px;
+  margin-bottom:9px;
 }
-.add:hover{background:#ddd}
+
+.add-btn{
+  width:100%;
+  background:#fff;
+  color:#000;
+  border:none;
+  padding:11px;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.add-btn:hover{
+  background:#ddd;
+}
+
 .features{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:15px
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
 }
+
 .feature{
- background:#101111;
- border:1px solid #222;
- padding:25px;
- border-radius:10px
+  background:#111;
+  border:1px solid #222;
+  border-radius:10px;
+  padding:25px;
 }
-.feature h3{margin-top:0}
-.feature p{color:#999;font-size:14px;line-height:1.5}
+
+.feature h3{
+  margin-bottom:10px;
+}
+
+.feature p{
+  color:#999;
+  line-height:1.5;
+  font-size:14px;
+}
+
 footer{
- border-top:1px solid #222;
- padding:30px 5%;
- color:#777;
- text-align:center;
- font-size:13px
+  border-top:1px solid #222;
+  padding:30px 5%;
+  text-align:center;
+  color:#777;
+  font-size:13px;
 }
-.drawer{
- position:fixed;
- right:-430px;
- top:0;
- width:min(430px,100%);
- height:100vh;
- background:#0b0b0b;
- border-left:1px solid #333;
- z-index:50;
- transition:.3s;
- padding:22px;
- overflow:auto
+
+/* CART */
+
+.cart-drawer{
+  position:fixed;
+  right:-450px;
+  top:0;
+  width:min(450px,100%);
+  height:100vh;
+  background:#0b0b0b;
+  border-left:1px solid #333;
+  z-index:1000;
+  transition:.3s;
+  padding:22px;
+  overflow-y:auto;
 }
-.drawer.open{right:0}
-.drawerHead{
- display:flex;
- justify-content:space-between;
- align-items:center;
- margin-bottom:20px
+
+.cart-drawer.open{
+  right:0;
 }
-.close{
- background:none;
- color:#fff;
- border:1px solid #444;
- border-radius:6px;
- padding:7px 10px;
- cursor:pointer
+
+.cart-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
 }
-.cartItem{
- display:grid;
- grid-template-columns:65px 1fr auto;
- gap:10px;
- padding:12px 0;
- border-bottom:1px solid #222
+
+.close-cart{
+  background:#111;
+  color:#fff;
+  border:1px solid #444;
+  padding:8px 11px;
+  border-radius:6px;
+  cursor:pointer;
 }
-.cartItem img{
- width:65px;
- height:75px;
- object-fit:cover;
- border-radius:5px
+
+.cart-item{
+  display:grid;
+  grid-template-columns:65px 1fr auto;
+  gap:10px;
+  padding:13px 0;
+  border-bottom:1px solid #222;
 }
-.cartName{font-size:14px;font-weight:bold}
-.cartSize{font-size:12px;color:#888;margin-top:4px}
-.qty{
- display:flex;
- align-items:center;
- gap:7px;
- margin-top:7px
+
+.cart-item img{
+  width:65px;
+  height:75px;
+  object-fit:cover;
+  border-radius:5px;
 }
-.qty button{
- width:25px;
- height:25px;
- background:#191919;
- border:1px solid #333;
- color:#fff;
- border-radius:4px;
- cursor:pointer
+
+.cart-item-name{
+  font-size:14px;
+  font-weight:bold;
 }
-.total{
- font-size:21px;
- font-weight:bold;
- margin:20px 0
+
+.cart-item-size{
+  color:#888;
+  font-size:12px;
+  margin-top:5px;
 }
-.wa{
- display:block;
- width:100%;
- text-align:center;
- background:#25d366;
- color:#000;
- padding:14px;
- border-radius:7px;
- font-weight:bold;
- text-decoration:none;
- cursor:pointer;
- border:0
+
+.quantity{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:8px;
 }
-.empty{
- color:#777;
- text-align:center;
- padding:40px 10px
-}
-@media(max-width:900px){
- .grid{grid-template-columns:repeat(2,1fr)}
- .features{grid-template-columns:1fr}
- nav{display:none}
-}
-@media(max-width:550px){
- header{padding:0 15px}
- .logo{font-size:22px}
- .hero{
-  min-height:430px;
-  padding:50px 22px
- }
- .hero h1{font-size:55px}
- .section{padding:35px 15px}
- .grid{gap:10px}
- .info{padding:11px}
- .name{font-size:13px}
- .price{font-size:16px}
-}
-</style>
-</head>
 
-<body>
+.quantity button{
+  width:
+ <script>
 
-<header>
- <div class="logo">ZAVEON<span>™</span></div>
-
- <nav>
-  <a href="#shop">Shop</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
- </nav>
-
- <button class="cartBtn" onclick="openCart()">
-  CART (<span id="cartCount">0</span>)
- </button>
-</header>
-
-<section class="hero">
- <div class="heroText">
-  <h1>WEAR<br>YOUR VIBE.</h1>
-  <p>
-   Streetwear made for people who don't follow the crowd.
-   Discover your edge with ZAVEON™.
-  </p>
-  <a class="btn" href="#shop">SHOP NOW</a>
- </div>
-</section>
-
-<section class="section" id="shop">
-
- <div class="sectionTitle">
-  <h2>Latest Drops</h2>
-
-  <div class="filters">
-   <input
-    id="search"
-    type="search"
-    placeholder="Search..."
-    oninput="renderProducts()"
-   >
-
-   <select id="category" onchange="renderProducts()">
-    <option value="all">All</option>
-    <option value="T-Shirt">T-Shirts</option>
-    <option value="Shirt">Shirts</option>
-    <option value="Sweatshirt">Sweatshirts</option>
-    <option value="Jeans">Jeans</option>
-    <option value="Trousers">Trousers</option>
-   </select>
-
-   <select id="sort" onchange="renderProducts()">
-    <option value="default">Sort</option>
-    <option value="low">Price: Low → High</option>
-    <option value="high">Price: High → Low</option>
-   </select>
-  </div>
- </div>
-
- <div class="grid" id="products"></div>
-
-</section>
-
-<section class="section" id="about">
-
- <div class="sectionTitle">
-  <h2>Why ZAVEON™?</h2>
- </div>
-
- <div class="features">
-
-  <div class="feature">
-   <h3>⚡ Street Ready</h3>
-   <p>
-    Designed for everyday fits, late-night rides and
-    your own unique vibe.
-   </p>
-  </div>
-
-  <div class="feature">
-   <h3>🔥 Fresh Drops</h3>
-   <p>
-    New styles and statement pieces made to stand out.
-   </p>
-  </div>
-
-  <div class="feature">
-   <h3>📦 Easy Ordering</h3>
-   <p>
-    Add your favourites to cart and place your order
-    directly through WhatsApp.
-   </p>
-  </div>
-
- </div>
-</section>
-
-<footer id="contact">
- © 2026 ZAVEON™ — WEAR YOUR EDGE.
-</footer>
-
-<div class="drawer" id="drawer">
-
- <div class="drawerHead">
-  <h2>Your Cart</h2>
-  <button class="close" onclick="closeCart()">✕</button>
- </div>
-
- <div id="cartItems"></div>
-
- <div class="total">
-  Total: ₹<span id="cartTotal">0</span>
- </div>
-
- <button class="wa" onclick="checkoutWhatsApp()">
-  ORDER ON WHATSAPP
- </button>
-
-</div>
-
-<script>
+/* ================================
+   ZAVEON™ PRODUCT DATA
+   ================================ */
 
 const WHATSAPP_NUMBER = "918799878981";
 
-/*
-  PRODUCT DATA
-  z1.jpg ... z9.jpg = your product photos.
-
-  IMPORTANT:
-  Put these 9 images in the same folder as this HTML file.
-*/
-
 const products = [
 
- {
-  id:1,
-  name:"Graphic Sweatshirt",
-  category:"Sweatshirt",
-  price:799,
-  image:"z1.jpg",
-  sizes:["M","L","XL","XXL"]
- },
+  {
+    id: 1,
+    name: "Graphic Sweatshirt",
+    category: "Sweatshirt",
+    price: 699,
+    image: "z1.jpg",
+    sizes: ["M","L","XL","XXL"]
+  },
 
- {
-  id:2,
-  name:"Logan Berry Formal Trousers",
-  category:"Trousers",
-  price:1550,
-  image:"z2.jpg",
-  sizes:["28","30","32","34","36"]
- },
+  {
+    id: 2,
+    name: "Logan Berry Formal Trouser",
+    category: "Trouser",
+    price: 1699,
+    image: "z2.jpg",
+    sizes: ["28","30","32","34","36"]
+  },
 
- {
-  id:3,
-  name:"VINS-9X Formal Trousers",
-  category:"Trousers",
-  price:1550,
-  image:"z3.jpg",
-  sizes:["28","30","32","34","36"]
- },
+  {
+    id: 3,
+    name: "VINS-9X Formal Trouser",
+    category: "Trouser",
+    price: 1699,
+    image: "z3.jpg",
+    sizes: ["28","30","32","34","36"]
+  },
 
- {
-  id:4,
-  name:"Garfield Graphic T-Shirt",
-  category:"T-Shirt",
-  price:699,
-  image:"z4.jpg",
-  sizes:["M","L","XL","XXL"]
- },
+  {
+    id: 4,
+    name: "Garfield Graphic T-Shirt",
+    category: "T-Shirt",
+    price: 449,
+    image: "z4.jpg",
+    sizes: ["M","L","XL","XXL"]
+  },
 
- {
-  id:5,
-  name:"Petrol Printed T-Shirt",
-  category:"T-Shirt",
-  price:699,
-  image:"z5.jpg",
-  sizes:["M","L","XL","XXL"]
- },
+  {
+    id: 5,
+    name: "Petrol Printed Shirt",
+    category: "Shirt",
+    price: 699,
+    image: "z5.jpg",
+    sizes: ["M","L","XL","XXL"]
+  },
 
- {
-  id:6,
-  name:"Blue Denim Jeans",
-  category:"Jeans",
-  price:1299,
-  image:"z6.jpg",
-  sizes:["28","30","32","34","36"]
- },
+  {
+    id: 6,
+    name: "Blue Denim Jeans",
+    category: "Jeans",
+    price: 1299,
+    image: "z6.jpg",
+    sizes: ["28","30","32","34","36"]
+  },
 
- {
-  id:7,
-  name:"Casual Trousers",
-  category:"Trousers",
-  price:1450,
-  image:"z7.jpg",
-  sizes:["28","30","32","34","36"]
- },
+  {
+    id: 7,
+    name: "Casual Trouser",
+    category: "Trouser",
+    price: 1450,
+    image: "z7.jpg",
+    sizes: ["28","30","32","34","36"]
+  },
 
- {
-  id:8,
-  name:"Printed Shirt",
-  category:"Shirt",
-  price:799,
-  image:"z8.jpg",
-  sizes:["M","L","XL","XXL"]
- },
+  {
+    id: 8,
+    name: "Printed Shirt",
+    category: "Shirt",
+    price: 799,
+    image: "z8.jpg",
+    sizes: ["M","L","XL","XXL"]
+  },
 
- {
-  id:9,
-  name:"VINS-9X Jeans",
-  category:"Jeans",
-  price:1299,
-  image:"z9.jpg",
-  sizes:["28","30","32","34","36"]
- }
+  {
+    id: 9,
+    name: "VINS-9X Trouser",
+    category: "Trouser",
+    price: 1699,
+    image: "z9.jpg",
+    sizes: ["28","30","32","34","36"]
+  }
 
 ];
 
-/*
-  NOTE:
-  The unwanted 1st-row 5th product is NOT included.
-*/
+
+/* ================================
+   CART
+   ================================ */
 
 let cart = [];
 
+
+/* ================================
+   SHOW PRODUCTS
+   ================================ */
+
 function renderProducts(){
 
- const search =
-  document.getElementById("search").value.toLowerCase();
+  const search =
+    document
+      .getElementById("search")
+      .value
+      .toLowerCase();
 
- const category =
-  document.getElementById("category").value;
+  const category =
+    document.getElementById("category").value;
 
- const sort =
-  document.getElementById("sort").value;
+  const sort =
+    document.getElementById("sort").value;
 
- let list = products.filter(p=>{
 
-  const matchSearch =
-   p.name.toLowerCase().includes(search);
+  let list = products.filter(product => {
 
-  const matchCategory =
-   category==="all" || p.category===category;
+    const searchMatch =
+      product.name
+        .toLowerCase()
+        .includes(search);
 
-  return matchSearch && matchCategory;
+    const categoryMatch =
+      category === "all" ||
+      product.category === category;
 
- });
+    return searchMatch && categoryMatch;
 
- if(sort==="low"){
-  list.sort((a,b)=>a.price-b.price);
- }
+  });
 
- if(sort==="high"){
-  list.sort((a,b)=>b.price-a.price);
- }
 
- document.getElementById("products").innerHTML =
-  list.map(p=>`
+  if(sort === "low"){
+    list.sort((a,b) => a.price - b.price);
+  }
 
-   <div class="card">
+  if(sort === "high"){
+    list.sort((a,b) => b.price - a.price);
+  }
 
-    <img
-     class="pic"
-     src="${p.image}"
-     alt="${p.name}"
-     loading="lazy"
-    >
 
-    <div class="info">
+  const container =
+    document.getElementById("products");
 
-     <div class="name">${p.name}</div>
 
-     <div class="meta">${p.category}</div>
+  container.innerHTML = list.map(product => `
 
-     <div class="price">₹${p.price}</div>
+    <div class="product">
 
-     <select id="size-${p.id}">
-      ${p.sizes.map(s=>`
-       <option value="${s}">${s}</option>
-      `).join("")}
-     </select>
+      <img
+        class="product-image"
+        src="${product.image}"
+        alt="${product.name}"
+        loading="lazy"
+      >
 
-     <button
-      class="add"
-      onclick="addToCart(${p.id})">
-      ADD TO CART
-     </button>
+      <div class="product-info">
+
+        <div class="product-name">
+          ${product.name}
+        </div>
+
+        <div class="product-category">
+          ${product.category}
+        </div>
+
+        <div class="product-price">
+          ₹${product.price}
+        </div>
+
+        <select
+          class="size-select"
+          id="size-${product.id}"
+        >
+
+          ${product.sizes.map(size => `
+            <option value="${size}">
+              Size ${size}
+            </option>
+          `).join("")}
+
+        </select>
+
+        <button
+          class="add-btn"
+          onclick="addToCart(${product.id})"
+        >
+          ADD TO CART
+        </button>
+
+      </div>
 
     </div>
-
-   </div>
 
   `).join("");
 
 }
 
-function addToCart(id){
 
- const product =
-  products.find(p=>p.id===id);
-
- const size =
-  document.getElementById("size-"+id).value;
-
- const existing =
-  cart.find(i=>i.id===id && i.size===size);
-
- if(existing){
-  existing.qty++;
- }else{
-  cart.push({
-   id:product.id,
-   name:product.name,
-   price:product.price,
-   image:product.image,
-   size:size,
-   qty:1
-  });
- }
-
- updateCart();
- openCart();
-
-}
-
-function changeQty(index,amount){
-
- cart[index].qty += amount;
-
- if(cart[index].qty<=0){
-  cart.splice(index,1);
- }
-
- updateCart();
-
-}
-
-function updateCart(){
-
- document.getElementById("cartCount").textContent =
-  cart.reduce((sum,i)=>sum+i.qty,0);
-
- let total = 0;
-
- const box =
-  document.getElementById("cartItems");
-
- if(cart.length===0){
-
-  box.innerHTML =
-   `<div class="empty">Your cart is empty.</div>`;
-
- }else{
-
-  box.innerHTML = cart.map((item,index)=>{
-
-   total += item.price * item.qty;
-
-   return `
-
-    <div class="cartItem">
-
-     <img src="${item.image}" alt="${item.name}">
-
-     <div>
-      <div class="cartName">${item.name}</div>
-
-      <div class="cartSize">
-       Size: ${item.size}
-      </div>
-
-      <div class="qty">
-
-       <button
-        onclick="changeQty(${index},-1)">
-        −
-       </button>
-
-       <span>${item.qty}</span>
-
-       <button
-        onclick="changeQty(${index},1)">
-        +
-       </button>
-
-      </div>
-     </div>
-
-     <div>
-      ₹${item.price*item.qty}
-     </div>
-
-    </div>
-
-   `;
-
-  }).join("");
-
- }
-
- document.getElementById("cartTotal").textContent =
-  total;
-
-}
-
-function openCart(){
- document.getElementById("drawer").classList.add("open");
- updateCart();
-}
-
-function closeCart(){
- document.getElementById("drawer").classList.remove("open");
-}
-
-function checkoutWhatsApp(){
-
- if(cart.length===0){
-  alert("Cart is empty!");
-  return;
- }
-
- let message =
-  "ZAVEON™ ORDER%0A%0A";
-
- cart.forEach(item=>{
-
-  message +=
-   "• "+item.name+
-   " | Size: "+item.size+
-   " | Qty: "+item.qty+
-   " | ₹"+(item.price*item.qty)+
-   "%0A";
-
- });
-
- const total =
-  cart.reduce(
-   (sum,item)=>sum+(item.price*item.qty),
-   0
-  );
-
- message +=
-  "%0A*Total: ₹"+total+"*"+
-  "%0A%0APlease confirm my order.";
-
- const url =
-  "https://wa.me/"+
-  WHATSAPP_NUMBER+
-  "?text="+message;
-
- window.open(url,"_blank");
-
-}
-
-renderProducts();
-updateCart();
-
-</script>
+/* ================================
+   ADD  
