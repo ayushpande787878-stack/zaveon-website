@@ -1,455 +1,278 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZAVEON™ — Wear Your Edge</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZAVEON™ — Wear Your Vibe</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box}
 body{
-  background:#080808;
-  color:#fff;
-  font-family:Arial,Helvetica,sans-serif;
+ margin:0;
+ background:#070808;
+ color:#fff;
+ font-family:Arial,Helvetica,sans-serif
 }
-
 header{
-  height:70px;
-  background:#050505;
-  border-bottom:1px solid #252525;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 5%;
-  position:sticky;
-  top:0;
-  z-index:100;
+ height:64px;
+ background:#070707;
+ border-bottom:1px solid #222;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ padding:0 4%;
+ position:sticky;
+ top:0;
+ z-index:10
 }
-
 .logo{
-  font-size:25px;
-  font-weight:900;
-  letter-spacing:3px;
+ font-size:27px;
+ font-weight:900;
+ letter-spacing:2px
 }
-
+.logo span{font-size:11px}
+nav{display:flex;gap:22px}
 nav a{
-  color:#fff;
-  text-decoration:none;
-  margin:0 14px;
-  font-size:13px;
-  font-weight:bold;
+ color:#aaa;
+ text-decoration:none;
+ font-size:13px;
+ text-transform:uppercase
 }
-
-.icons{
-  display:flex;
-  gap:18px;
-  align-items:center;
+nav a:hover{color:#fff}
+.cartBtn{
+ border:1px solid #444;
+ background:#111;
+ color:#fff;
+ padding:10px 15px;
+ border-radius:8px;
+ cursor:pointer
 }
-
-.icon{
-  cursor:pointer;
-  font-size:20px;
-}
-
-.cart-count{
-  font-size:11px;
-  background:#fff;
-  color:#000;
-  border-radius:50%;
-  padding:3px 6px;
-  vertical-align:top;
-}
-
 .hero{
-  min-height:570px;
-  display:flex;
-  align-items:center;
-  padding:60px 7%;
-  background:
-    linear-gradient(90deg,#050505 15%,rgba(5,5,5,.65)),
-    url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=85")
-    center/cover;
+ min-height:440px;
+ padding:70px 6%;
+ display:flex;
+ align-items:center;
+ background:
+ linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.3)),
+ url("https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1800&q=85")
+ center/cover
 }
-
-.hero-content{
-  max-width:650px;
-}
-
-.hero-small{
-  color:#aaa;
-  letter-spacing:4px;
-  font-size:13px;
-  margin-bottom:22px;
-}
-
+.heroText{max-width:650px}
 .hero h1{
-  font-size:clamp(60px,10vw,120px);
-  line-height:.82;
-  letter-spacing:-6px;
-  font-weight:900;
+ font-size:clamp(45px,8vw,90px);
+ line-height:.9;
+ margin:0 0 20px;
+ letter-spacing:-4px
 }
-
-.hero-tag{
-  margin:28px 0;
-  letter-spacing:5px;
-  color:#ddd;
+.hero p{
+ color:#bbb;
+ font-size:17px;
+ margin-bottom:28px
 }
-
 .btn{
-  background:#fff;
-  color:#000;
-  border:0;
-  padding:16px 30px;
-  font-weight:900;
-  cursor:pointer;
+ display:inline-block;
+ background:#fff;
+ color:#000;
+ padding:14px 22px;
+ border-radius:6px;
+ font-weight:bold;
+ text-decoration:none;
+ border:0;
+ cursor:pointer
 }
-
-.section{
-  padding:65px 5%;
+.section{padding:45px 5%}
+.sectionTitle{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ margin-bottom:25px
 }
-
-.title{
-  font-size:32px;
-  margin-bottom:30px;
-  letter-spacing:1px;
+.sectionTitle h2{margin:0;font-size:28px}
+.filters{
+ display:flex;
+ gap:10px;
+ flex-wrap:wrap
 }
-
-.categories{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
+select,input{
+ background:#111;
+ color:#fff;
+ border:1px solid #333;
+ padding:11px 13px;
+ border-radius:6px
 }
-
-.category{
-  height:160px;
-  background:#151515;
-  border:1px solid #222;
-  display:flex;
-  align-items:flex-end;
-  padding:20px;
-  font-weight:900;
-  transition:.25s;
-  cursor:pointer;
+.grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:18px
 }
-
-.category:hover{
-  background:#222;
-  transform:translateY(-3px);
-}
-
-.controls{
-  display:flex;
-  gap:10px;
-  margin-bottom:28px;
-}
-
-.controls input,
-.controls select{
-  background:#111;
-  color:#fff;
-  border:1px solid #333;
-  padding:13px;
-  outline:none;
-}
-
-.controls input{
-  flex:1;
-}
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
 .card{
-  background:#111;
-  border:1px solid #242424;
-  overflow:hidden;
-  position:relative;
-  transition:.25s;
+ background:#101111;
+ border:1px solid #222;
+ border-radius:10px;
+ overflow:hidden;
+ transition:.2s
 }
-
 .card:hover{
-  transform:translateY(-4px);
-  border-color:#444;
+ transform:translateY(-4px);
+ border-color:#555
 }
-
-.product-image{
-  width:100%;
-  height:330px;
-  object-fit:cover;
-  display:block;
+.pic{
+ width:100%;
+ aspect-ratio:1/1.15;
+ object-fit:cover;
+ background:#181818;
+ display:block
 }
-
-.badge{
-  position:absolute;
-  top:12px;
-  left:12px;
-  background:#fff;
-  color:#000;
-  padding:6px 9px;
-  font-size:10px;
-  font-weight:900;
-  z-index:2;
+.info{padding:15px}
+.name{
+ font-weight:bold;
+ font-size:15px;
+ margin-bottom:7px
 }
-
-.info{
-  padding:16px;
+.meta{
+ color:#888;
+ font-size:12px;
+ margin-bottom:10px
 }
-
-.info h3{
-  font-size:15px;
-  margin-bottom:10px;
-}
-
 .price{
-  font-weight:900;
-  font-size:17px;
+ font-size:18px;
+ font-weight:bold;
+ margin-bottom:12px
 }
-
-.old-price{
-  color:#666;
-  text-decoration:line-through;
-  font-size:12px;
-  margin-left:7px;
+.card select{
+ width:100%;
+ margin-bottom:9px
 }
-
-.size{
-  width:100%;
-  margin-top:12px;
-  padding:11px;
-  background:#080808;
-  border:1px solid #333;
-  color:#fff;
-}
-
 .add{
-  width:100%;
-  margin-top:10px;
-  padding:13px;
-  border:0;
-  background:#fff;
-  color:#000;
-  font-weight:900;
-  cursor:pointer;
+ width:100%;
+ background:#fff;
+ color:#000;
+ border:0;
+ padding:11px;
+ border-radius:6px;
+ font-weight:bold;
+ cursor:pointer
 }
-
-.add:hover{
-  background:#ddd;
+.add:hover{background:#ddd}
+.features{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:15px
 }
-
-.benefits{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  border-top:1px solid #252525;
-  border-bottom:1px solid #252525;
+.feature{
+ background:#101111;
+ border:1px solid #222;
+ padding:25px;
+ border-radius:10px
 }
-
-.benefit{
-  text-align:center;
-  padding:28px 15px;
-  border-right:1px solid #252525;
-}
-
-.benefit-icon{
-  font-size:25px;
-  margin-bottom:10px;
-}
-
-.benefit small{
-  color:#777;
-}
-
+.feature h3{margin-top:0}
+.feature p{color:#999;font-size:14px;line-height:1.5}
 footer{
-  padding:50px 5%;
-  text-align:center;
-  color:#777;
+ border-top:1px solid #222;
+ padding:30px 5%;
+ color:#777;
+ text-align:center;
+ font-size:13px
 }
-
-footer h2{
-  color:#fff;
-  letter-spacing:4px;
+.drawer{
+ position:fixed;
+ right:-430px;
+ top:0;
+ width:min(430px,100%);
+ height:100vh;
+ background:#0b0b0b;
+ border-left:1px solid #333;
+ z-index:50;
+ transition:.3s;
+ padding:22px;
+ overflow:auto
 }
-
-footer p{
-  margin-top:10px;
+.drawer.open{right:0}
+.drawerHead{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:20px
 }
-
-.cart{
-  position:fixed;
-  right:-430px;
-  top:0;
-  width:410px;
-  max-width:100%;
-  height:100vh;
-  background:#101010;
-  z-index:500;
-  padding:25px;
-  overflow-y:auto;
-  transition:.3s ease;
-}
-
-.cart.open{
-  right:0;
-}
-
-.cart-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:20px;
-}
-
 .close{
-  background:none;
-  color:#fff;
-  border:0;
-  font-size:22px;
-  cursor:pointer;
+ background:none;
+ color:#fff;
+ border:1px solid #444;
+ border-radius:6px;
+ padding:7px 10px;
+ cursor:pointer
 }
-
-.overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  z-index:400;
-  display:none;
+.cartItem{
+ display:grid;
+ grid-template-columns:65px 1fr auto;
+ gap:10px;
+ padding:12px 0;
+ border-bottom:1px solid #222
 }
-
-.overlay.show{
-  display:block;
+.cartItem img{
+ width:65px;
+ height:75px;
+ object-fit:cover;
+ border-radius:5px
 }
-
-.cart-item{
-  display:flex;
-  gap:12px;
-  padding:15px 0;
-  border-bottom:1px solid #292929;
-}
-
-.cart-item img{
-  width:70px;
-  height:80px;
-  object-fit:cover;
-}
-
-.cart-info{
-  flex:1;
-}
-
-.cart-info small{
-  color:#888;
-}
-
+.cartName{font-size:14px;font-weight:bold}
+.cartSize{font-size:12px;color:#888;margin-top:4px}
 .qty{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-top:9px;
+ display:flex;
+ align-items:center;
+ gap:7px;
+ margin-top:7px
 }
-
 .qty button{
-  background:#222;
-  color:#fff;
-  border:0;
-  padding:5px 9px;
-  cursor:pointer;
+ width:25px;
+ height:25px;
+ background:#191919;
+ border:1px solid #333;
+ color:#fff;
+ border-radius:4px;
+ cursor:pointer
 }
-
-.remove{
-  background:none!important;
-  color:#888!important;
+.total{
+ font-size:21px;
+ font-weight:bold;
+ margin:20px 0
 }
-
-.cart-total{
-  border-top:1px solid #333;
-  margin-top:20px;
-  padding-top:20px;
-  font-size:20px;
-  font-weight:bold;
+.wa{
+ display:block;
+ width:100%;
+ text-align:center;
+ background:#25d366;
+ color:#000;
+ padding:14px;
+ border-radius:7px;
+ font-weight:bold;
+ text-decoration:none;
+ cursor:pointer;
+ border:0
 }
-
-.whatsapp{
-  width:100%;
-  margin-top:15px;
-  padding:15px;
-  background:#25d366;
-  color:#000;
-  border:0;
-  font-weight:900;
-  cursor:pointer;
+.empty{
+ color:#777;
+ text-align:center;
+ padding:40px 10px
 }
-
 @media(max-width:900px){
-
-  nav{
-    display:none;
-  }
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .categories{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .benefits{
-    grid-template-columns:repeat(2,1fr);
-  }
-
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .features{grid-template-columns:1fr}
+ nav{display:none}
 }
-
 @media(max-width:550px){
-
-  header{
-    padding:0 15px;
-  }
-
-  .section{
-    padding:45px 12px;
-  }
-
-  .hero{
-    min-height:500px;
-    padding:40px 25px;
-  }
-
-  .hero h1{
-    font-size:65px;
-  }
-
-  .products{
-    gap:9px;
-  }
-
-  .product-image{
-    height:220px;
-  }
-
-  .categories{
-    gap:8px;
-  }
-
-  .category{
-    height:120px;
-    padding:14px;
-  }
-
-  .cart{
-    width:100%;
-  }
-
+ header{padding:0 15px}
+ .logo{font-size:22px}
+ .hero{
+  min-height:430px;
+  padding:50px 22px
+ }
+ .hero h1{font-size:55px}
+ .section{padding:35px 15px}
+ .grid{gap:10px}
+ .info{padding:11px}
+ .name{font-size:13px}
+ .price{font-size:16px}
 }
 </style>
 </head>
@@ -457,731 +280,455 @@ footer p{
 <body>
 
 <header>
+ <div class="logo">ZAVEON<span>™</span></div>
 
-<div class="logo">
-ZAVEON™
-</div>
+ <nav>
+  <a href="#shop">Shop</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+ </nav>
 
-<nav>
-<a href="#home">HOME</a>
-<a href="#shop">SHOP</a>
-<a href="#categories">CATEGORIES</a>
-<a href="#about">ABOUT</a>
-</nav>
-
-<div class="icons">
-
-<span class="icon" onclick="focusSearch()">
-⌕
-</span>
-
-<span class="icon" onclick="openCart()">
-🛒 <span class="cart-count" id="cartCount">0</span>
-</span>
-
-</div>
-
+ <button class="cartBtn" onclick="openCart()">
+  CART (<span id="cartCount">0</span>)
+ </button>
 </header>
 
-<section class="hero" id="home">
-
-<div class="hero-content">
-
-<div class="hero-small">
-PREMIUM FASHION STORE
-</div>
-
-<h1>
-ZAVEON
-</h1>
-
-<div class="hero-tag">
-WEAR YOUR EDGE.
-</div>
-
-<button class="btn" onclick="goShop()">
-SHOP NOW
-</button>
-
-</div>
-
-</section>
-
-<section class="section" id="categories">
-
-<h2 class="title">
-SHOP BY CATEGORY
-</h2>
-
-<div class="categories">
-
-<div class="category" onclick="filterCategory('Oversized Tees')">
-OVERSIZED TEES
-</div>
-
-<div class="category" onclick="filterCategory('Hoodies')">
-HOODIES
-</div>
-
-<div class="category" onclick="filterCategory('Shirts')">
-SHIRTS
-</div>
-
-<div class="category" onclick="filterCategory('Trousers')">
-TROUSERS
-</div>
-
-</div>
-
+<section class="hero">
+ <div class="heroText">
+  <h1>WEAR<br>YOUR VIBE.</h1>
+  <p>
+   Streetwear made for people who don't follow the crowd.
+   Discover your edge with ZAVEON™.
+  </p>
+  <a class="btn" href="#shop">SHOP NOW</a>
+ </div>
 </section>
 
 <section class="section" id="shop">
 
-<h2 class="title">
-FEATURED PRODUCTS
-</h2>
+ <div class="sectionTitle">
+  <h2>Latest Drops</h2>
 
-<div class="controls">
+  <div class="filters">
+   <input
+    id="search"
+    type="search"
+    placeholder="Search..."
+    oninput="renderProducts()"
+   >
 
-<input
-id="search"
-type="text"
-placeholder="Search products..."
-oninput="renderProducts()"
->
+   <select id="category" onchange="renderProducts()">
+    <option value="all">All</option>
+    <option value="T-Shirt">T-Shirts</option>
+    <option value="Shirt">Shirts</option>
+    <option value="Sweatshirt">Sweatshirts</option>
+    <option value="Jeans">Jeans</option>
+    <option value="Trousers">Trousers</option>
+   </select>
 
-<select id="sort" onchange="renderProducts()">
+   <select id="sort" onchange="renderProducts()">
+    <option value="default">Sort</option>
+    <option value="low">Price: Low → High</option>
+    <option value="high">Price: High → Low</option>
+   </select>
+  </div>
+ </div>
 
-<option value="default">
-Sort Products
-</option>
-
-<option value="low">
-Price: Low to High
-</option>
-
-<option value="high">
-Price: High to Low
-</option>
-
-<option value="name">
-Name A-Z
-</option>
-
-</select>
-
-</div>
-
-<div class="products" id="products"></div>
+ <div class="grid" id="products"></div>
 
 </section>
 
-<section class="benefits">
+<section class="section" id="about">
 
-<div class="benefit">
-<div class="benefit-icon">🚚</div>
-<b>FAST DELIVERY</b>
-<br>
-<small>Quick shipping</small>
-</div>
+ <div class="sectionTitle">
+  <h2>Why ZAVEON™?</h2>
+ </div>
 
-<div class="benefit">
-<div class="benefit-icon">💳</div>
-<b>SECURE PAYMENT</b>
-<br>
-<small>Safe checkout</small>
-</div>
+ <div class="features">
 
-<div class="benefit">
-<div class="benefit-icon">↩️</div>
-<b>EASY RETURNS</b>
-<br>
-<small>Simple process</small>
-</div>
+  <div class="feature">
+   <h3>⚡ Street Ready</h3>
+   <p>
+    Designed for everyday fits, late-night rides and
+    your own unique vibe.
+   </p>
+  </div>
 
-<div class="benefit">
-<div class="benefit-icon">💬</div>
-<b>WHATSAPP SUPPORT</b>
-<br>
-<small>We're here to help</small>
-</div>
+  <div class="feature">
+   <h3>🔥 Fresh Drops</h3>
+   <p>
+    New styles and statement pieces made to stand out.
+   </p>
+  </div>
 
+  <div class="feature">
+   <h3>📦 Easy Ordering</h3>
+   <p>
+    Add your favourites to cart and place your order
+    directly through WhatsApp.
+   </p>
+  </div>
+
+ </div>
 </section>
 
-<footer id="about">
-
-<h2>ZAVEON™</h2>
-
-<p>
-WEAR YOUR EDGE.
-</p>
-
-<p>
-© 2026 ZAVEON™ — Premium Streetwear
-</p>
-
+<footer id="contact">
+ © 2026 ZAVEON™ — WEAR YOUR EDGE.
 </footer>
 
-<div
-class="overlay"
-id="overlay"
-onclick="closeCart()">
-</div>
+<div class="drawer" id="drawer">
 
-<div class="cart" id="cart">
+ <div class="drawerHead">
+  <h2>Your Cart</h2>
+  <button class="close" onclick="closeCart()">✕</button>
+ </div>
 
-<div class="cart-header">
+ <div id="cartItems"></div>
 
-<h2>
-YOUR CART
-</h2>
+ <div class="total">
+  Total: ₹<span id="cartTotal">0</span>
+ </div>
 
-<button class="close" onclick="closeCart()">
-✕
-</button>
-
-</div>
-
-<div id="cartItems"></div>
-
-<div class="cart-total">
-TOTAL: ₹<span id="cartTotal">0</span>
-</div>
-
-<button class="whatsapp" onclick="checkoutWhatsApp()">
-ORDER ON WHATSAPP
-</button>
+ <button class="wa" onclick="checkoutWhatsApp()">
+  ORDER ON WHATSAPP
+ </button>
 
 </div>
 
 <script>
 
-/* =========================
-   WHATSAPP NUMBER
-   ========================= */
-
 const WHATSAPP_NUMBER = "918799878981";
 
+/*
+  PRODUCT DATA
+  z1.jpg ... z9.jpg = your product photos.
 
-/* =========================
-   PRODUCTS
-   FIRST ROW 5TH ITEM REMOVED
-   ========================= */
+  IMPORTANT:
+  Put these 9 images in the same folder as this HTML file.
+*/
 
 const products = [
 
-{
- id:1,
- name:"Origin 01 — Oversized Tee",
- price:499,
- category:"Oversized Tees",
- image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85"
-},
+ {
+  id:1,
+  name:"Graphic Sweatshirt",
+  category:"Sweatshirt",
+  price:799,
+  image:"z1.jpg",
+  sizes:["M","L","XL","XXL"]
+ },
 
-{
- id:2,
- name:"Origin 01 — Hoodie",
- price:999,
- category:"Hoodies",
- image:"https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=85"
-},
+ {
+  id:2,
+  name:"Logan Berry Formal Trousers",
+  category:"Trousers",
+  price:1550,
+  image:"z2.jpg",
+  sizes:["28","30","32","34","36"]
+ },
 
-{
- id:3,
- name:"Vins-9X Formal Trousers",
- price:1550,
- category:"Trousers",
- image:"https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=800&q=85"
-},
+ {
+  id:3,
+  name:"VINS-9X Formal Trousers",
+  category:"Trousers",
+  price:1550,
+  image:"z3.jpg",
+  sizes:["28","30","32","34","36"]
+ },
 
-{
- id:4,
- name:"Premium Oversized Shirt",
- price:799,
- category:"Shirts",
- image:"https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=800&q=85"
-},
+ {
+  id:4,
+  name:"Garfield Graphic T-Shirt",
+  category:"T-Shirt",
+  price:699,
+  image:"z4.jpg",
+  sizes:["M","L","XL","XXL"]
+ },
 
-/*
- IMPORTANT:
- FIRST ROW KA 5TH PRODUCT YAHAN INTENTIONALLY NAHI HAI.
-*/
+ {
+  id:5,
+  name:"Petrol Printed T-Shirt",
+  category:"T-Shirt",
+  price:699,
+  image:"z5.jpg",
+  sizes:["M","L","XL","XXL"]
+ },
 
-{
- id:6,
- name:"Urban Black Jacket",
- price:1299,
- category:"Jackets",
- image:"https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=85"
-},
+ {
+  id:6,
+  name:"Blue Denim Jeans",
+  category:"Jeans",
+  price:1299,
+  image:"z6.jpg",
+  sizes:["28","30","32","34","36"]
+ },
 
-{
- id:7,
- name:"Classic Street Tee",
- price:599,
- category:"Oversized Tees",
- image:"https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=800&q=85"
-},
+ {
+  id:7,
+  name:"Casual Trousers",
+  category:"Trousers",
+  price:1450,
+  image:"z7.jpg",
+  sizes:["28","30","32","34","36"]
+ },
 
-{
- id:8,
- name:"Everyday Cargo",
- price:1199,
- category:"Trousers",
- image:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=85"
-},
+ {
+  id:8,
+  name:"Printed Shirt",
+  category:"Shirt",
+  price:799,
+  image:"z8.jpg",
+  sizes:["M","L","XL","XXL"]
+ },
 
-{
- id:9,
- name:"Minimal Black Shirt",
- price:899,
- category:"Shirts",
- image:"https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=85"
-},
-
-{
- id:10,
- name:"ZAVEON Street Hoodie",
- price:1099,
- category:"Hoodies",
- image:"https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=800&q=85"
-}
+ {
+  id:9,
+  name:"VINS-9X Jeans",
+  category:"Jeans",
+  price:1299,
+  image:"z9.jpg",
+  sizes:["28","30","32","34","36"]
+ }
 
 ];
 
-let cart = JSON.parse(
-localStorage.getItem("zaveon_cart") || "[]"
-);
+/*
+  NOTE:
+  The unwanted 1st-row 5th product is NOT included.
+*/
 
-let activeCategory = "All";
-
-
-/* =========================
-   RENDER PRODUCTS
-   ========================= */
+let cart = [];
 
 function renderProducts(){
 
-const search =
-document.getElementById("search")
-.value
-.toLowerCase()
-.trim();
+ const search =
+  document.getElementById("search").value.toLowerCase();
 
-let list = products.filter(product => {
+ const category =
+  document.getElementById("category").value;
 
-const searchMatch =
-product.name.toLowerCase().includes(search) ||
-product.category.toLowerCase().includes(search);
+ const sort =
+  document.getElementById("sort").value;
 
-const categoryMatch =
-activeCategory === "All" ||
-product.category === activeCategory;
+ let list = products.filter(p=>{
 
-return searchMatch && categoryMatch;
+  const matchSearch =
+   p.name.toLowerCase().includes(search);
 
-});
+  const matchCategory =
+   category==="all" || p.category===category;
 
-const sort =
-document.getElementById("sort").value;
+  return matchSearch && matchCategory;
 
-if(sort === "low"){
-list.sort((a,b)=>a.price-b.price);
-}
+ });
 
-if(sort === "high"){
-list.sort((a,b)=>b.price-a.price);
-}
+ if(sort==="low"){
+  list.sort((a,b)=>a.price-b.price);
+ }
 
-if(sort === "name"){
-list.sort((a,b)=>a.name.localeCompare(b.name));
-}
+ if(sort==="high"){
+  list.sort((a,b)=>b.price-a.price);
+ }
 
-document.getElementById("products").innerHTML =
-list.map(product => `
+ document.getElementById("products").innerHTML =
+  list.map(p=>`
 
-<div class="card">
+   <div class="card">
 
-<div class="badge">
-${product.category}
-</div>
+    <img
+     class="pic"
+     src="${p.image}"
+     alt="${p.name}"
+     loading="lazy"
+    >
 
-<img
-class="product-image"
-src="${product.image}"
-alt="${product.name}"
-onerror="this.style.background='#222';this.removeAttribute('src')"
->
+    <div class="info">
 
-<div class="info">
+     <div class="name">${p.name}</div>
 
-<h3>
-${product.name}
-</h3>
+     <div class="meta">${p.category}</div>
 
-<div class="price">
-₹${product.price}
-</div>
+     <div class="price">₹${p.price}</div>
 
-<select
-class="size"
-id="size-${product.id}"
->
+     <select id="size-${p.id}">
+      ${p.sizes.map(s=>`
+       <option value="${s}">${s}</option>
+      `).join("")}
+     </select>
 
-<option value="S">SIZE S</option>
-<option value="M">SIZE M</option>
-<option value="L">SIZE L</option>
-<option value="XL">SIZE XL</option>
-<option value="XXL">SIZE XXL</option>
+     <button
+      class="add"
+      onclick="addToCart(${p.id})">
+      ADD TO CART
+     </button>
 
-</select>
+    </div>
 
-<button
-class="add"
-onclick="addToCart(${product.id})"
->
-ADD TO CART
-</button>
+   </div>
 
-</div>
-
-</div>
-
-`).join("");
+  `).join("");
 
 }
-
-
-/* =========================
-   CATEGORY
-   ========================= */
-
-function filterCategory(category){
-
-activeCategory = category;
-
-document.getElementById("search").value = "";
-
-renderProducts();
-
-document.getElementById("shop")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-
-/* =========================
-   ADD TO CART
-   ========================= */
 
 function addToCart(id){
 
-const product =
-products.find(p => p.id === id);
+ const product =
+  products.find(p=>p.id===id);
 
-const size =
-document.getElementById("size-"+id).value;
+ const size =
+  document.getElementById("size-"+id).value;
 
-const existing =
-cart.find(item =>
-item.id === id &&
-item.size === size
-);
+ const existing =
+  cart.find(i=>i.id===id && i.size===size);
 
-if(existing){
+ if(existing){
+  existing.qty++;
+ }else{
+  cart.push({
+   id:product.id,
+   name:product.name,
+   price:product.price,
+   image:product.image,
+   size:size,
+   qty:1
+  });
+ }
 
-existing.quantity++;
-
-}else{
-
-cart.push({
-id:product.id,
-name:product.name,
-price:product.price,
-category:product.category,
-image:product.image,
-size:size,
-quantity:1
-});
+ updateCart();
+ openCart();
 
 }
 
-saveCart();
+function changeQty(index,amount){
 
-openCart();
+ cart[index].qty += amount;
 
-}
+ if(cart[index].qty<=0){
+  cart.splice(index,1);
+ }
 
-
-/* =========================
-   SAVE CART
-   ========================= */
-
-function saveCart(){
-
-localStorage.setItem(
-"zaveon_cart",
-JSON.stringify(cart)
-);
-
-updateCart();
+ updateCart();
 
 }
-
-
-/* =========================
-   UPDATE CART
-   ========================= */
 
 function updateCart(){
 
-const count =
-cart.reduce(
-(total,item)=>total+item.quantity,
-0
-);
+ document.getElementById("cartCount").textContent =
+  cart.reduce((sum,i)=>sum+i.qty,0);
 
-document.getElementById(
-"cartCount"
-).innerText = count;
+ let total = 0;
 
-const container =
-document.getElementById("cartItems");
+ const box =
+  document.getElementById("cartItems");
 
-if(cart.length === 0){
+ if(cart.length===0){
 
-container.innerHTML = `
-<p style="color:#777;padding:30px 0">
-Your cart is empty.
-</p>
-`;
+  box.innerHTML =
+   `<div class="empty">Your cart is empty.</div>`;
 
-}else{
+ }else{
 
-container.innerHTML =
-cart.map((item,index)=>`
+  box.innerHTML = cart.map((item,index)=>{
 
-<div class="cart-item">
+   total += item.price * item.qty;
 
-<img
-src="${item.image}"
-alt="${item.name}"
->
+   return `
 
-<div class="cart-info">
+    <div class="cartItem">
 
-<b>
-${item.name}
-</b>
+     <img src="${item.image}" alt="${item.name}">
 
-<br>
+     <div>
+      <div class="cartName">${item.name}</div>
 
-<small>
-Size: ${item.size}
-</small>
+      <div class="cartSize">
+       Size: ${item.size}
+      </div>
 
-<br>
+      <div class="qty">
 
-₹${item.price}
+       <button
+        onclick="changeQty(${index},-1)">
+        −
+       </button>
 
-<div class="qty">
+       <span>${item.qty}</span>
 
-<button
-onclick="changeQuantity(${index},-1)"
->
-−
-</button>
+       <button
+        onclick="changeQty(${index},1)">
+        +
+       </button>
 
-<span>
-${item.quantity}
-</span>
+      </div>
+     </div>
 
-<button
-onclick="changeQuantity(${index},1)"
->
-+
-</button>
+     <div>
+      ₹${item.price*item.qty}
+     </div>
 
-<button
-class="remove"
-onclick="removeFromCart(${index})"
->
-🗑
-</button>
+    </div>
 
-</div>
+   `;
 
-</div>
+  }).join("");
 
-</div>
+ }
 
-`).join("");
+ document.getElementById("cartTotal").textContent =
+  total;
 
 }
-
-const total =
-cart.reduce(
-(sum,item)=>
-sum + item.price * item.quantity,
-0
-);
-
-document.getElementById(
-"cartTotal"
-).innerText = total;
-
-}
-
-
-/* =========================
-   QUANTITY
-   ========================= */
-
-function changeQuantity(index,value){
-
-cart[index].quantity += value;
-
-if(cart[index].quantity <= 0){
-
-cart.splice(index,1);
-
-}
-
-saveCart();
-
-}
-
-
-/* =========================
-   REMOVE
-   ========================= */
-
-function removeFromCart(index){
-
-cart.splice(index,1);
-
-saveCart();
-
-}
-
-
-/* =========================
-   CART OPEN/CLOSE
-   ========================= */
 
 function openCart(){
-
-document.getElementById("cart")
-.classList.add("open");
-
-document.getElementById("overlay")
-.classList.add("show");
-
+ document.getElementById("drawer").classList.add("open");
+ updateCart();
 }
 
 function closeCart(){
-
-document.getElementById("cart")
-.classList.remove("open");
-
-document.getElementById("overlay")
-.classList.remove("show");
-
+ document.getElementById("drawer").classList.remove("open");
 }
-
-
-/* =========================
-   SHOP
-   ========================= */
-
-function goShop(){
-
-document.getElementById("shop")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-
-/* =========================
-   SEARCH
-   ========================= */
-
-function focusSearch(){
-
-document.getElementById("search").focus();
-
-goShop();
-
-}
-
-
-/* =========================
-   WHATSAPP CHECKOUT
-   ========================= */
 
 function checkoutWhatsApp(){
 
-if(cart.length === 0){
+ if(cart.length===0){
+  alert("Cart is empty!");
+  return;
+ }
 
-alert("Bhai, cart empty hai!");
+ let message =
+  "ZAVEON™ ORDER%0A%0A";
 
-return;
+ cart.forEach(item=>{
 
-}
+  message +=
+   "• "+item.name+
+   " | Size: "+item.size+
+   " | Qty: "+item.qty+
+   " | ₹"+(item.price*item.qty)+
+   "%0A";
 
-let message =
-"🔥 ZAVEON™ ORDER\n\n";
+ });
 
-cart.forEach(item => {
+ const total =
+  cart.reduce(
+   (sum,item)=>sum+(item.price*item.qty),
+   0
+  );
 
-message +=
-"Product: "+item.name+"\n"+
-"Size: "+item.size+"\n"+
-"Quantity: "+item.quantity+"\n"+
-"Price: ₹"+(item.price*item.quantity)+"\n\n";
+ message +=
+  "%0A*Total: ₹"+total+"*"+
+  "%0A%0APlease confirm my order.";
 
-});
+ const url =
+  "https://wa.me/"+
+  WHATSAPP_NUMBER+
+  "?text="+message;
 
-const total =
-cart.reduce(
-(sum,item)=>
-sum + item.price * item.quantity,
-0
-);
-
-message +=
-"TOTAL: ₹"+total+"\n\n";
-
-message +=
-"Name: \n"+
-"Phone: \n"+
-"Address: \n"+
-"City: \n"+
-"Pincode: ";
-
-const url =
-"https://wa.me/" +
-WHATSAPP_NUMBER +
-"?text=" +
-encodeURIComponent(message);
-
-window.open(url,"_blank");
+ window.open(url,"_blank");
 
 }
-
-
-/* =========================
-   START
-   ========================= */
 
 renderProducts();
 updateCart();
 
 </script>
-
-</body>
-</html>
